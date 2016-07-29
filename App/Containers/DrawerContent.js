@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { ScrollView, Image } from 'react-native'
 import styles from './Styles/DrawerContentStyle'
 import { Images } from '../Themes'
@@ -11,14 +11,14 @@ class DrawerContent extends Component {
     this.context.drawer.toggle()
   }
 
-  handlePressComponents = () => {
+  handlePressShop = () => {
     this.toggleDrawer()
-    NavigationActions.componentExamples()
+    NavigationActions.shopScreen()
   }
 
-  handlePressUsage = () => {
+  handlePressBag = () => {
     this.toggleDrawer()
-    NavigationActions.usageExamples()
+    NavigationActions.bagScreen()
   }
 
   handlePressAPI = () => {
@@ -36,15 +36,21 @@ class DrawerContent extends Component {
     NavigationActions.deviceInfo()
   }
 
+  handlePressSupport = () => {
+    this.toggleDrawer()
+    NavigationActions.supportScreen()
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Image source={Images.logo} style={styles.logo} />
-        <DrawerButton text='Component Examples' onPress={this.handlePressComponents} />
-        <DrawerButton text='Usage Examples' onPress={this.handlePressUsage} />
-        <DrawerButton text='API Testing' onPress={this.handlePressAPI} />
-        <DrawerButton text='Themes' onPress={this.handlePressTheme} />
-        <DrawerButton text='Device Info' onPress={this.handlePressDevice} />
+        <DrawerButton text='Shop' onPress={this.handlePressShop} />
+        <DrawerButton text='Bag' onPress={this.handlePressBag} />
+        <DrawerButton text='Inspiration' onPress={this.handlePressAPI} />
+        <DrawerButton text='Stores' onPress={this.handlePressTheme} />
+        <DrawerButton text='My Account' onPress={this.handlePressDevice} />
+        <DrawerButton text='Customer Support' onPress={this.handlePressSupport} />
+        <DrawerButton text='Log Out' onPress={this.handlePressDevice} />
       </ScrollView>
     )
   }
