@@ -1,8 +1,8 @@
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'
-import { Metrics } from '../Themes'
+import { Metrics, Images } from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Animatable from 'react-native-animatable'
@@ -18,11 +18,9 @@ class BagScreen extends React.Component {
 
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>BagScreen Container</Text>
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Image source={Images.bagNoItems} style={{width: 276, height: 147}}/>
+      </View>
     )
   }
 }

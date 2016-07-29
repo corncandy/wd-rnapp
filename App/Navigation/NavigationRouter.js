@@ -70,26 +70,35 @@ class NavigationRouter extends Component {
                 key='shopScreen'
                 component={ShopScreen}
                 icon={TabIcon}
-                title='Shop'
-                initial />
+                title='Shop' />
               <Scene
+                navigationBarStyle={{backgroundColor: '#F2F2F2', height: 65, borderBottomWidth: 0}}
+                renderTitle={() => <Image source={Images.brand} style={{alignSelf: 'center', resizeMode: 'stretch', width: 51, height: 28, marginTop: 26}}/>}
+                drawerImage={Images.drawer}
                 key='inspirationScreen'
                 component={InspirationScreen}
                 icon={TabIcon}
-                title='Inspiration'
-                rightTitle='Example'
-                onRight={()=>window.alert('Example Pressed')} />
+                title='Inspiration' />
               <Scene
+                navigationBarStyle={{backgroundColor: '#F2F2F2', height: 65, borderBottomWidth: 0}}
+                renderTitle={() => <Image source={Images.brand} style={{alignSelf: 'center', resizeMode: 'stretch', width: 51, height: 28, marginTop: 26}}/>}
+                drawerImage={Images.drawer}
                 key='bagScreen'
                 component={BagScreen}
                 icon={TabIcon}
-                title='Bag' />
+                title='Bag' initial />
               <Scene
+                navigationBarStyle={{backgroundColor: '#F2F2F2', height: 65, borderBottomWidth: 0}}
+                renderTitle={() => <Image source={Images.brand} style={{alignSelf: 'center', resizeMode: 'stretch', width: 51, height: 28, marginTop: 26}}/>}
+                drawerImage={Images.drawer}
                 key='storeScreen'
                 component={StoreScreen}
                 icon={TabIcon}
                 title='Stores' />
               <Scene
+                navigationBarStyle={{backgroundColor: '#F2F2F2', height: 65, borderBottomWidth: 0}}
+                renderTitle={() => <Image source={Images.brand} style={{alignSelf: 'center', resizeMode: 'stretch', width: 51, height: 28, marginTop: 26}}/>}
+                drawerImage={Images.drawer}
                 key='moreScreen'
                 component={MoreScreen}
                 icon={TabIcon}

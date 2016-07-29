@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Image } from 'react-native'
+import { View, ScrollView, Image, TouchableOpacity } from 'react-native'
 import styles from './Styles/DrawerContentStyle'
 import { Images } from '../Themes'
 import DrawerButton from '../Components/DrawerButton'
@@ -46,16 +46,31 @@ class DrawerContent extends Component {
     // Need logout action here!
   }
 
-  render () {
+  render() {
     return (
-      <ScrollView style={styles.container}>
-        <DrawerButton text='Shop' onPress={this.handlePressShop} />
-        <DrawerButton text='Bag' onPress={this.handlePressBag} />
-        <DrawerButton text='Inspiration' onPress={this.handlePressInspiration} />
-        <DrawerButton text='Stores' onPress={this.handlePressStore} />
+      <ScrollView>
+        <Image source={Images.drawerNavBg} style={{height: 266, width: null}}>
+          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressShop}>
+              <Image source={Images.shopDrawerIcon} style={{height: 50, width: 31}} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressBag}>
+              <Image source={Images.bagDrawerIcon} style={{height: 51, width: 25}} />
+            </TouchableOpacity>
+          </View>
+          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressInspiration}>
+              <Image source={Images.inspirationDrawerIcon} style={{height: 48, width: 64}} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressStore}>
+              <Image source={Images.storesDrawerIcon} style={{height: 48, width: 38}} />
+            </TouchableOpacity>
+          </View>
+        </Image>
         <DrawerButton text='My Account' onPress={this.handlePressAccount} />
         <DrawerButton text='Customer Support' onPress={this.handlePressSupport} />
-        <DrawerButton text='Log Out' onPress={this.handlePressLogout} />
+        <DrawerButton text='Log Out' textStyle={{color: '#f3b453'}} onPress={this.handlePressLogout} />
+        <Image source={Images.drawerFollowUs} style={{width: 216, height: 85, alignSelf: 'center', marginTop: 33}} />
       </ScrollView>
     )
   }

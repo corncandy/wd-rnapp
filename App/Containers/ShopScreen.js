@@ -1,8 +1,8 @@
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { View, ScrollView, Text, Image, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'
-import { Metrics } from '../Themes'
+import { Metrics, Images } from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Animatable from 'react-native-animatable'
@@ -18,10 +18,11 @@ class ShopScreen extends React.Component {
 
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>ShopScreen Container</Text>
-        </KeyboardAvoidingView>
+      <ScrollView style={{marginTop: 70, marginBottom: 50}}>
+        <Image source={Images.shopTopBanner} style={{height: 40, width: null}}/>
+        <Image source={Images.shopMenOutwear} style={{height: 80, width: null}} />
+        <Image source={Images.shopWomenOutwear} style={{height: 80, width: null}} />
+        <Image source={Images.shopOffer} style={{height: 277, width: null}}/>
       </ScrollView>
     )
   }

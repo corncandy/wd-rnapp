@@ -2,7 +2,8 @@ import {Colors} from '../../Themes/'
 
 export default {
   drawer: {
-    backgroundColor: Colors.background
+    marginTop: 20,
+    backgroundColor: '#323232'
   },
   main: {
     backgroundColor: Colors.ember

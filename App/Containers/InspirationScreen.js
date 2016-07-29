@@ -1,8 +1,8 @@
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { View, Text, KeyboardAvoidingView, Image } from 'react-native'
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'
-import { Metrics } from '../Themes'
+import { Metrics, Images } from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Animatable from 'react-native-animatable'
@@ -14,15 +14,20 @@ import styles from './Styles/InspirationScreenStyle'
 // I18n
 import I18n from '../I18n/I18n.js'
 
+import Dimensions from 'Dimensions'
+
 class InspirationScreen extends React.Component {
 
   render () {
+    const {height, width} = Dimensions.get('window')
+    const imageWidth = width / 3
+    const imageHeight = height - 65 - 50
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>InspirationScreen Container</Text>
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <View style={{flexDirection: 'row', paddingTop: 65, paddingBottom: 50}}>
+        <Image source={Images.inspirationLife} resizeMode='stretch' style={{width: imageWidth, height: imageHeight}} />
+        <Image source={Images.inspirationFasion} resizeMode='stretch' style={{width: imageWidth, height: imageHeight}} />
+        <Image source={Images.inspirationVideos} resizeMode='stretch' style={{width: imageWidth, height: imageHeight}} />
+      </View>
     )
   }
 }
