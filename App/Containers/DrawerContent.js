@@ -21,19 +21,19 @@ class DrawerContent extends Component {
     NavigationActions.bagScreen()
   }
 
-  handlePressAPI = () => {
+  handlePressInspiration = () => {
     this.toggleDrawer()
-    NavigationActions.apiTesting()
+    NavigationActions.inspirationScreen()
   }
 
-  handlePressTheme = () => {
+  handlePressStore = () => {
     this.toggleDrawer()
-    NavigationActions.theme()
+    NavigationActions.storeScreen()
   }
 
-  handlePressDevice = () => {
+  handlePressAccount = () => {
     this.toggleDrawer()
-    NavigationActions.deviceInfo()
+    NavigationActions.accountScreen()
   }
 
   handlePressSupport = () => {
@@ -41,16 +41,21 @@ class DrawerContent extends Component {
     NavigationActions.supportScreen()
   }
 
+  handlePressLogout = () => {
+    this.toggleDrawer()
+    // Need logout action here!
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
         <DrawerButton text='Shop' onPress={this.handlePressShop} />
         <DrawerButton text='Bag' onPress={this.handlePressBag} />
-        <DrawerButton text='Inspiration' onPress={this.handlePressAPI} />
-        <DrawerButton text='Stores' onPress={this.handlePressTheme} />
-        <DrawerButton text='My Account' onPress={this.handlePressDevice} />
+        <DrawerButton text='Inspiration' onPress={this.handlePressInspiration} />
+        <DrawerButton text='Stores' onPress={this.handlePressStore} />
+        <DrawerButton text='My Account' onPress={this.handlePressAccount} />
         <DrawerButton text='Customer Support' onPress={this.handlePressSupport} />
-        <DrawerButton text='Log Out' onPress={this.handlePressDevice} />
+        <DrawerButton text='Log Out' onPress={this.handlePressLogout} />
       </ScrollView>
     )
   }
