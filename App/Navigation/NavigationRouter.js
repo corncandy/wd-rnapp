@@ -7,6 +7,7 @@ import { Images } from '../Themes'
 
 // screens identified by the router
 import ShopScreen from '../Containers/ShopScreen'
+import ProductScreen from '../Containers/ProductScreen'
 import BagScreen from '../Containers/BagScreen'
 import InspirationScreen from '../Containers/InspirationScreen'
 import StoreScreen from '../Containers/StoreScreen'
@@ -48,7 +49,7 @@ class NavigationRouter extends Component {
                 drawerImage={Images.drawer}
                 component={ShopScreen}
                 icon={TabIcon}
-                title='Shop' />
+                title='Shop'/>
               <Scene
                 key='inspirationScreen'
                 renderTitle={BrandIcon}
@@ -76,14 +77,18 @@ class NavigationRouter extends Component {
                 drawerImage={Images.drawer}
                 component={MoreScreen}
                 icon={TabIcon}
-                title='More' initial />
+                title='More' />
             </Scene>
             <Scene
               renderTitle={BrandIcon}
               backButtonImage={Images.back}
+              key='productScreen'
+              component={ProductScreen} initial />
+            <Scene
+              renderTitle={BrandIcon}
+              backButtonImage={Images.back}
               key='supportScreen'
-              component={SupportScreen}
-              title='Customer Support' />
+              component={SupportScreen} />
           </Scene>
         </Scene>
       </Router>

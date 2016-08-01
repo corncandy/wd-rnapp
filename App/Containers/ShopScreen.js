@@ -1,5 +1,11 @@
 import React from 'react'
-import { View, ScrollView, Text, Image, KeyboardAvoidingView } from 'react-native'
+import {
+  View,
+  ScrollView,
+  Text,
+  Image,
+  TouchableOpacity
+} from 'react-native'
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'
 import { Metrics, Images } from '../Themes'
@@ -15,12 +21,17 @@ import styles from './Styles/ShopScreenStyle'
 import I18n from '../I18n/I18n.js'
 
 class ShopScreen extends React.Component {
+  showProduct(category) {
+    NavigationActions.productScreen({category})
+  }
 
   render () {
     return (
       <ScrollView style={styles.container}>
         <Image source={Images.shopTopBanner} style={styles.topBanner} />
-        <Image source={Images.shopMenOutwear} style={styles.menOutwear} />
+        <TouchableOpacity onPress={this.showProduct.bind(this, 'men-outwear')}>
+          <Image source={Images.shopMenOutwear} style={styles.menOutwear} />
+        </TouchableOpacity>
         <Image source={Images.shopWomenOutwear} style={styles.womenOutwear} />
         <Image source={Images.shopOffer} style={styles.offer} />
       </ScrollView>

@@ -21,7 +21,9 @@ const ApplicationStyles = {
     },
     container: {
       flex: 1,
-      paddingTop: Metrics.baseMargin
+      marginTop: Metrics.navBarHeight,
+      marginBottom: Metrics.tabBarHeight,
+      backgroundColor: '#F2F2F2'
     },
     section: {
       margin: Metrics.section,
