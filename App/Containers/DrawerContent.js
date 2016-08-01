@@ -33,7 +33,7 @@ class DrawerContent extends Component {
 
   handlePressAccount = () => {
     this.toggleDrawer()
-    NavigationActions.accountScreen()
+    NavigationActions.moreScreen()
   }
 
   handlePressSupport = () => {
@@ -48,29 +48,29 @@ class DrawerContent extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <Image source={Images.drawerNavBg} style={{height: 266, width: null}}>
-          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressShop}>
+      <ScrollView style={styles.container}>
+        <Image source={Images.drawerNavBg} style={{height: 267, width: null}} resizeMode='stretch'>
+          <View style={styles.drawerNav}>
+            <TouchableOpacity style={styles.navIcon} onPress={this.handlePressShop}>
               <Image source={Images.shopDrawerIcon} style={{height: 50, width: 31}} />
             </TouchableOpacity>
-            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressBag}>
+            <TouchableOpacity style={styles.navIcon} onPress={this.handlePressBag}>
               <Image source={Images.bagDrawerIcon} style={{height: 51, width: 25}} />
             </TouchableOpacity>
           </View>
-          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressInspiration}>
+          <View style={styles.drawerNav}>
+            <TouchableOpacity style={styles.navIcon} onPress={this.handlePressInspiration}>
               <Image source={Images.inspirationDrawerIcon} style={{height: 48, width: 64}} />
             </TouchableOpacity>
-            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={this.handlePressStore}>
+            <TouchableOpacity style={styles.navIcon} onPress={this.handlePressStore}>
               <Image source={Images.storesDrawerIcon} style={{height: 48, width: 38}} />
             </TouchableOpacity>
           </View>
         </Image>
         <DrawerButton text='My Account' onPress={this.handlePressAccount} />
         <DrawerButton text='Customer Support' onPress={this.handlePressSupport} />
-        <DrawerButton text='Log Out' textStyle={{color: '#f3b453'}} onPress={this.handlePressLogout} />
-        <Image source={Images.drawerFollowUs} style={{width: 216, height: 85, alignSelf: 'center', marginTop: 33}} />
+        <DrawerButton text='Log Out' textStyle={styles.warningText} onPress={this.handlePressLogout} />
+        <Image source={Images.drawerFollowUs} style={styles.followUs} />
       </ScrollView>
     )
   }

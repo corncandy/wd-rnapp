@@ -27,7 +27,10 @@ const metrics = {
     medium: 40,
     large: 60,
     logo: 300
-  }
+  },
+  // Scale length according to screen size
+  scale: length => length * width / 320,
+  tabBarHeight: 50
 }
 
 export default metrics

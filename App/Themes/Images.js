@@ -8,6 +8,7 @@ const images = {
 
   brand: require('../Images/brand.png'),
   drawer: require('../Images/drawer.png'),
+  back: require('../Images/back-icon.png'),
   shopIcon: require('../Images/shop-icon.png'),
   shopIconActive: require('../Images/shop-icon-active.png'),
   inspirationIcon: require('../Images/inspiration-icon.png'),
@@ -17,6 +18,7 @@ const images = {
   storesIcon: require('../Images/stores-icon.png'),
   storesIconActive: require('../Images/stores-icon-active.png'),
   moreIcon: require('../Images/more-icon.png'),
+  moreIconActive: require('../Images/more-icon-active.png'),
 
   drawerNavBg: require('../Images/drawer-nav-bg.png'),
   shopDrawerIcon: require('../Images/shop-drawer-icon.png'),
@@ -35,6 +37,15 @@ const images = {
   inspirationVideos: require('../Images/inspiration-videos.png'),
 
   bagNoItems: require('../Images/bag-no-items.png'),
+
+  storesMap: require('../Images/stores-map.png'),
+  storesHeader: require('../Images/stores-header.png'),
+
+  accountHeader: require('../Images/account-header.png'),
+  accountOrderRefresh: require('../Images/account-order-refresh.png'),
+  accountPaymentIcon: require('../Images/account-payment-icon.png'),
+  accountSettingsIcon: require('../Images/account-settings-icon.png'),
+  accountNextIcon: require('../Images/account-next-icon.png')
 }
 
 export default images

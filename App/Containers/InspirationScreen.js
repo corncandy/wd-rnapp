@@ -14,19 +14,14 @@ import styles from './Styles/InspirationScreenStyle'
 // I18n
 import I18n from '../I18n/I18n.js'
 
-import Dimensions from 'Dimensions'
-
 class InspirationScreen extends React.Component {
 
   render () {
-    const {height, width} = Dimensions.get('window')
-    const imageWidth = width / 3
-    const imageHeight = height - 65 - 50
     return (
-      <View style={{flexDirection: 'row', paddingTop: 65, paddingBottom: 50}}>
-        <Image source={Images.inspirationLife} resizeMode='stretch' style={{width: imageWidth, height: imageHeight}} />
-        <Image source={Images.inspirationFasion} resizeMode='stretch' style={{width: imageWidth, height: imageHeight}} />
-        <Image source={Images.inspirationVideos} resizeMode='stretch' style={{width: imageWidth, height: imageHeight}} />
+      <View style={styles.container}>
+        <Image source={Images.inspirationLife} resizeMode='stretch' style={styles.column} />
+        <Image source={Images.inspirationFasion} resizeMode='stretch' style={styles.column} />
+        <Image source={Images.inspirationVideos} resizeMode='stretch' style={styles.column} />
       </View>
     )
   }

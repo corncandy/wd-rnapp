@@ -18,8 +18,8 @@ class BagScreen extends React.Component {
 
   render () {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Image source={Images.bagNoItems} style={{width: 276, height: 147}}/>
+      <View style={styles.container}>
+        <Image source={Images.bagNoItems} style={styles.noItem}/>
       </View>
     )
   }

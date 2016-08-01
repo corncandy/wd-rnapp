@@ -18,11 +18,11 @@ class ShopScreen extends React.Component {
 
   render () {
     return (
-      <ScrollView style={{marginTop: 70, marginBottom: 50}}>
-        <Image source={Images.shopTopBanner} style={{height: 40, width: null}}/>
-        <Image source={Images.shopMenOutwear} style={{height: 80, width: null}} />
-        <Image source={Images.shopWomenOutwear} style={{height: 80, width: null}} />
-        <Image source={Images.shopOffer} style={{height: 277, width: null}}/>
+      <ScrollView style={styles.container}>
+        <Image source={Images.shopTopBanner} style={styles.topBanner} />
+        <Image source={Images.shopMenOutwear} style={styles.menOutwear} />
+        <Image source={Images.shopWomenOutwear} style={styles.womenOutwear} />
+        <Image source={Images.shopOffer} style={styles.offer} />
       </ScrollView>
     )
   }
