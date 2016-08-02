@@ -21,6 +21,10 @@ const requestProducts = (category) => ({ type: Types.PRODUCTS_REQUEST, category 
 const receiveProducts = (list) => ({ type: Types.PRODUCTS_RECEIVE, list })
 const receiveProductsFailure = () => ({ type: Types.PRODUCTS_FAILURE })
 
+const requestProduct = (id) => ({ type: Types.PRODUCT_REQUEST, id })
+const receiveProduct = (item) => ({ type: Types.PRODUCT_RECEIVE, item })
+const receiveProductFailure = () => ({ type: Types.PRODUCT_FAILURE })
+
 const requestCategories = (shop) => ({ type: Types.CATEGORIES_REQUEST, shop })
 const receiveCategories = (list) => ({ type: Types.CATEGORIES_RECEIVE, list })
 const receiveCategoriesFailure = () => ({ type: Types.CATEGORIES_FAILURE })
@@ -38,11 +42,15 @@ export default {
   receiveTemperature,
   receiveTemperatureFailure,
 
+  requestCategories,
+  receiveCategories,
+  receiveCategoriesFailure,
+
   requestProducts,
   receiveProducts,
   receiveProductsFailure,
 
-  requestCategories,
-  receiveCategories,
-  receiveCategoriesFailure,
+  requestProduct,
+  receiveProduct,
+  receiveProductFailure,
 }

@@ -62,7 +62,9 @@ class ProductScreen extends React.Component {
   *************************************************************/
   _renderRow (rowData) {
     return (
-      <View style={{height: 115, flexDirection: 'row', borderBottomWidth: 0.5, borderBottomColor: '#bfbfbf'}}>
+      <TouchableOpacity
+        style={{height: 115, flexDirection: 'row', borderBottomWidth: 0.5, borderBottomColor: '#bfbfbf'}}
+        onPress={this.showProduct.bind(this, rowData)}>
         <View style={{flex: 2, padding: 20}}>
           <Image source={{uri: rowData.picture}} style={{width: 130, height: 80}} resizeMode='stretch' />
         </View>
@@ -73,7 +75,7 @@ class ProductScreen extends React.Component {
             <Text style={{fontSize: 13, fontWeight: 'bold', color: '#454545'}}>${rowData.current}</Text>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 
@@ -119,6 +121,12 @@ class ProductScreen extends React.Component {
     })
   }
 
+  showProduct(product) {
+    NavigationActions.productDetailScreen({
+      id: product.id
+    })
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -127,7 +135,7 @@ class ProductScreen extends React.Component {
           enableEmptySections={true}
           contentContainerStyle={styles.listView}
           dataSource={this.state.dataSource}
-          renderRow={this._renderRow} />
+          renderRow={this._renderRow.bind(this)} />
         <View style={styles.wrapper}>
           <ScrollView
             horizontal={true}

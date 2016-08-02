@@ -44,6 +44,7 @@ const create = (baseURL = 'http://localhost:3000') => {
   //
   const getCity = (city) => api.get('/find/name', {q: city})
   const getProducts = (category) => api.get('/products', {category})
+  const getProduct = (id) => api.get(`/products/${id}`)
   const getCategories = (shop) => api.get('/categories', {shop})
 
   // ------
@@ -62,6 +63,7 @@ const create = (baseURL = 'http://localhost:3000') => {
     // a list of the API functions from step 2
     getCity,
     getProducts,
+    getProduct,
     getCategories,
     // additional utilities
     addMonitor

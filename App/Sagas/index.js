@@ -5,6 +5,7 @@ import { watchStartup } from './StartupSaga'
 import { watchLoginAttempt } from './LoginSaga'
 import getCityWeather from './GetCityWeatherSaga'
 import getProducts from './GetProductsSaga'
+import getProduct from './GetProductSaga'
 import getCategories from './GetCategoriesSaga'
 import DebugSettings from '../Config/DebugSettings'
 
@@ -20,5 +21,6 @@ export default function * root () {
   yield fork(watchLoginAttempt)
   yield fork(getCityWeather(api).watcher)
   yield fork(getProducts(api).watcher)
+  yield fork(getProduct(api).watcher)
   yield fork(getCategories(api).watcher)
 }

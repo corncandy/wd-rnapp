@@ -8,6 +8,7 @@ import { Images } from '../Themes'
 // screens identified by the router
 import ShopScreen from '../Containers/ShopScreen'
 import ProductScreen from '../Containers/ProductScreen'
+import ProductDetailScreen from '../Containers/ProductDetailScreen'
 import BagScreen from '../Containers/BagScreen'
 import InspirationScreen from '../Containers/InspirationScreen'
 import StoreScreen from '../Containers/StoreScreen'
@@ -84,6 +85,11 @@ class NavigationRouter extends Component {
               backButtonImage={Images.back}
               key='productScreen'
               component={ProductScreen} initial />
+            <Scene
+              title='Product Detail'
+              backButtonImage={Images.back}
+              key='productDetailScreen'
+              component={ProductDetailScreen} />
             <Scene
               renderTitle={BrandIcon}
               backButtonImage={Images.back}
