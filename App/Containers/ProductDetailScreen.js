@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { View, ScrollView, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'
 import { Metrics } from '../Themes'
@@ -7,6 +7,7 @@ import { Metrics } from '../Themes'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Animatable from 'react-native-animatable'
 import { Actions as NavigationActions } from 'react-native-router-flux'
+import Swiper from 'react-native-swiper'
 
 // Styles
 import styles from './Styles/ProductDetailScreenStyle'
@@ -23,10 +24,21 @@ class ProductDetailScreen extends React.Component {
     console.log(this.props);
     return (
       <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>{this.props.id}</Text>
-          <Text>{this.props.product.name}</Text>
-        </KeyboardAvoidingView>
+        <Swiper
+          width={Metrics.screenWidth}
+          height={Metrics.scale(350)}
+          style={styles.wrapper}
+          showsButtons={false}>
+          <View style={styles.slide1}>
+            <Text style={styles.text}>Hello Swiper</Text>
+          </View>
+          <View style={styles.slide2}>
+            <Text style={styles.text}>Beautiful</Text>
+          </View>
+          <View style={styles.slide3}>
+            <Text style={styles.text}>And simple</Text>
+          </View>
+        </Swiper>
       </ScrollView>
     )
   }
