@@ -1,0 +1,16 @@
+{
+  "message": "",
+  "cod": "200",
+  "type": "base",
+  "calctime": "",
+  "count": 2,
+  "list": [{
+    "id": 1,
+    "name": "Product1",
+    "picture": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1449186010,727577337&fm=116&gp=0.jpg"
+  }, {
+    "id": 2,
+    "name": "Product2",
+    "picture": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1491117243,3497302713&fm=116&gp=0.jpg"
+  }]
+}

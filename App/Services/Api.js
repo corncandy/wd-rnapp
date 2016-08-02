@@ -3,7 +3,7 @@ import apisauce from 'apisauce'
 import Reactotron from 'reactotron'
 
 // our "constructor"
-const create = (baseURL = 'http://openweathermap.org/data/2.1') => {
+const create = (baseURL = 'http://localhost:3000') => {
   // ------
   // STEP 1
   // ------
@@ -43,6 +43,8 @@ const create = (baseURL = 'http://openweathermap.org/data/2.1') => {
   // way at this level.
   //
   const getCity = (city) => api.get('/find/name', {q: city})
+  const getProducts = (category) => api.get('/products', {category})
+  const getCategories = (shop) => api.get('/categories', {shop})
 
   // ------
   // STEP 3
@@ -59,6 +61,8 @@ const create = (baseURL = 'http://openweathermap.org/data/2.1') => {
   return {
     // a list of the API functions from step 2
     getCity,
+    getProducts,
+    getCategories,
     // additional utilities
     addMonitor
   }

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import {
   ScrollView,
   Text,
   Image,
   View,
-  ListView
+  ListView,
+  TouchableOpacity
 } from 'react-native'
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'
@@ -21,6 +22,10 @@ import styles from './Styles/ProductScreenStyle'
 import I18n from '../I18n/I18n.js'
 
 class ProductScreen extends React.Component {
+  static propTypes = {
+    requestProducts: PropTypes.func
+  }
+
   constructor (props) {
     super(props)
     /* ***********************************************************
@@ -28,15 +33,7 @@ class ProductScreen extends React.Component {
     * This is an array of objects with the properties you desire
     * Usually this should come from Redux mapStateToProps
     *************************************************************/
-    const dataObjects = [
-      {title: 'First Title', description: 'First Description'},
-      {title: 'Second Title', description: 'Second Description'},
-      {title: 'Third Title', description: 'Third Description'},
-      {title: 'Fourth Title', description: 'Fourth Description'},
-      {title: 'Fifth Title', description: 'Fifth Description'},
-      {title: 'Sixth Title', description: 'Sixth Description'},
-      {title: 'Seventh Title', description: 'Seventh Description'}
-    ]
+    const dataObjects = this.props.products
 
     /* ***********************************************************
     * STEP 2
@@ -65,9 +62,17 @@ class ProductScreen extends React.Component {
   *************************************************************/
   _renderRow (rowData) {
     return (
-      <View style={styles.row}>
-        <Text style={styles.boldLabel}>{rowData.title}</Text>
-        <Text style={styles.label}>{rowData.description}</Text>
+      <View style={{height: 115, flexDirection: 'row', borderBottomWidth: 0.5, borderBottomColor: '#bfbfbf'}}>
+        <View style={{flex: 2, padding: 20}}>
+          <Image source={{uri: rowData.picture}} style={{width: 130, height: 80}} resizeMode='stretch' />
+        </View>
+        <View style={{flex: 3, justifyContent: 'center'}}>
+          <Text style={{fontSize: 15, color: '#454545', width: 156, height: 38}}>{rowData.name}</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{fontSize: 13, color: '#999999', textDecorationLine: 'line-through', marginRight: 8}}>${rowData.price}</Text>
+            <Text style={{fontSize: 13, fontWeight: 'bold', color: '#454545'}}>${rowData.current}</Text>
+          </View>
+        </View>
       </View>
     )
   }
@@ -80,15 +85,21 @@ class ProductScreen extends React.Component {
   * is called very often, and should remain fast!  Just replace
   * state's datasource on newProps.
   *
-  * e.g.
-    componentWillReceiveProps (newProps) {
-      if (newProps.someData) {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(newProps.someData)
-        })
-      }
-    }
   *************************************************************/
+  componentWillReceiveProps (newProps) {
+    if (this.props.categories.length === 0 && newProps.categories && newProps.categories.length) {
+      this.setState({
+        currentCategory: newProps.categories[0].id
+      }, () => {
+        this.props.requestProducts(this.state.currentCategory)
+      })
+    }
+    if (newProps.products) {
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(newProps.products)
+      })
+    }
+  }
 
   // Used for friendly AlertMessage
   // returns true if the dataSource is empty
@@ -96,11 +107,24 @@ class ProductScreen extends React.Component {
     return this.state.dataSource.getRowCount() === 0
   }
 
+  componentDidMount() {
+    this.props.requestCategories(this.props.category)
+  }
+
+  selectCategory(category) {
+    this.setState({
+      currentCategory: category.id
+    }, () => {
+      this.props.requestProducts(this.state.currentCategory)
+    })
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
         <Image source={Images.shopMenOutwear} style={styles.banner} />
         <ListView
+          enableEmptySections={true}
           contentContainerStyle={styles.listView}
           dataSource={this.state.dataSource}
           renderRow={this._renderRow} />
@@ -110,11 +134,22 @@ class ProductScreen extends React.Component {
             automaticallyAdjustContentInsets={false}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.categories}>
-            <Text style={styles.category}>All Products</Text>
-            <Text style={styles.category}>Jeans</Text>
-            <Text style={styles.category}>T-Shirts</Text>
-            <Text style={styles.category}>Shoes</Text>
-            <Text style={styles.category}>Accessories</Text>
+            {
+              this.props.categories.map(category => (
+                <TouchableOpacity
+                  key={category.id}
+                  style={{alignSelf: 'center'}}
+                  onPress={this.selectCategory.bind(this, category)}>
+                  <Text
+                    style={[
+                      styles.category,
+                      (category.id === this.state.currentCategory) ? styles.categoryActive : ''
+                    ]}>
+                    {category.name}
+                  </Text>
+                </TouchableOpacity>
+              ))
+            }
           </ScrollView>
         </View>
       </ScrollView>
@@ -124,11 +159,15 @@ class ProductScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    products: state.products.list,
+    categories: state.categories.list
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    requestProducts: (category) => dispatch(Actions.requestProducts(category)),
+    requestCategories: (category) => dispatch(Actions.requestCategories(category)),
   }
 }
 

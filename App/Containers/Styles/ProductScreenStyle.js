@@ -5,7 +5,8 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
     flex: 1,
-    marginTop: Metrics.navBarHeight
+    marginTop: Metrics.navBarHeight,
+    backgroundColor: '#F2F2F2'
   },
   banner: {
     height: Metrics.scale(81),
@@ -34,10 +35,13 @@ export default StyleSheet.create({
     fontSize: 14,
     color: '#454545',
     marginRight: 19,
-    alignSelf: 'center'
+  },
+  categoryActive: {
+    color: '#47A4AC'
   },
   listView: {
-    paddingTop: 46
+    paddingTop: 46,
+    backgroundColor: '#FFFFFF'
   },
   row: {
     height: 115,

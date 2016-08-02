@@ -17,6 +17,14 @@ const requestTemperature = (city) => ({ type: Types.TEMPERATURE_REQUEST, city })
 const receiveTemperature = (temperature) => ({ type: Types.TEMPERATURE_RECEIVE, temperature })
 const receiveTemperatureFailure = () => ({ type: Types.TEMPERATURE_FAILURE })
 
+const requestProducts = (category) => ({ type: Types.PRODUCTS_REQUEST, category })
+const receiveProducts = (list) => ({ type: Types.PRODUCTS_RECEIVE, list })
+const receiveProductsFailure = () => ({ type: Types.PRODUCTS_FAILURE })
+
+const requestCategories = (shop) => ({ type: Types.CATEGORIES_REQUEST, shop })
+const receiveCategories = (list) => ({ type: Types.CATEGORIES_RECEIVE, list })
+const receiveCategoriesFailure = () => ({ type: Types.CATEGORIES_FAILURE })
+
 /**
  Makes available all the action creators we've created.
  */
@@ -28,5 +36,13 @@ export default {
   startup,
   requestTemperature,
   receiveTemperature,
-  receiveTemperatureFailure
+  receiveTemperatureFailure,
+
+  requestProducts,
+  receiveProducts,
+  receiveProductsFailure,
+
+  requestCategories,
+  receiveCategories,
+  receiveCategoriesFailure,
 }
