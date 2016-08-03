@@ -45,7 +45,20 @@ const images = {
   accountOrderRefresh: require('../Images/account-order-refresh.png'),
   accountPaymentIcon: require('../Images/account-payment-icon.png'),
   accountSettingsIcon: require('../Images/account-settings-icon.png'),
-  accountNextIcon: require('../Images/account-next-icon.png')
+  accountNextIcon: require('../Images/account-next-icon.png'),
+
+  sizeXS: require('../Images/deltail-size-xs.png'),
+  sizeS: require('../Images/deltail-size-s.png'),
+  sizeM: require('../Images/deltail-size-m.png'),
+  sizeL: require('../Images/deltail-size-l.png'),
+  sizeXL: require('../Images/deltail-size-xl.png'),
+  sizeXXL: require('../Images/deltail-size-xxl.png'),
+
+  colorBlack: require('../Images/deltail-color-black.png'),
+  colorRed: require('../Images/deltail-color-red.png'),
+  colorBlue: require('../Images/deltail-color-blue.png'),
+  colorGreen: require('../Images/deltail-color-green.png'),
+  colorPurple: require('../Images/deltail-color-purple.png'),
 }
 
 export default images

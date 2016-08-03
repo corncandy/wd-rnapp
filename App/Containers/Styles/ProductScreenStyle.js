@@ -47,5 +47,5 @@ export default StyleSheet.create({
     height: 115,
     flexDirection: 'row',
     alignItems: 'center'
-  }
+  },
 })

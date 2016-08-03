@@ -50,7 +50,7 @@ class NavigationRouter extends Component {
                 drawerImage={Images.drawer}
                 component={ShopScreen}
                 icon={TabIcon}
-                title='Shop'/>
+                title='Shop' initial />
               <Scene
                 key='inspirationScreen'
                 renderTitle={BrandIcon}
@@ -84,7 +84,7 @@ class NavigationRouter extends Component {
               renderTitle={BrandIcon}
               backButtonImage={Images.back}
               key='productScreen'
-              component={ProductScreen} initial />
+              component={ProductScreen} />
             <Scene
               title='Product Detail'
               backButtonImage={Images.back}
